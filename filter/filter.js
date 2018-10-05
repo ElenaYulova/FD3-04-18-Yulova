@@ -22,39 +22,39 @@ var FilterWords =React.createClass({
     },
     getInitialState: function () {
         return {
-            "filteredWords": this.props.data,
+            filteredWords: this.props.words,
             "filter": "",
             "sorted": false,
             
         }
     },
     useFilter: function (EO) {
-        this.setState({filter: event.target.value}, this.useFilterAndSort);
+        this.setState({filter: EO.target.value}, this.useFilterAndSort);
     },
     useSort: function (EO) {            
         this.setState({sorted : EO.target.checked}, this.useFilterAndSort);
     },
     useFilterAndSort: function () {
-        var words = this.props.data.slice();
+        var words = this.props.words.slice();
         if (this.state.sorted){
             words = words.sort();
         }
-        if (this.state.filter) {
+        if (this.state.contain) {
             words = words.filter(
-                letters => letters.search(this.state.filter)
+                letter => (letter.indexOf(this.state.contain) != -1)
             );
         }
         this.setState({"filteredWords": words})
     },
     render: function () {
         var wordsList = this.state.filteredWords.map (
-            (word) => React.DOM.span( {className: ""}, word)
+            (word) => React.DOM.span( {key:Math.random(), className: ""}, word)
         );
         
         return (
             React.DOM.div({className:""},
             React.DOM.input({type:"checkbox", checked: this.state.sorted, onChange:this.useSort}),
-            React.DOM.input({type:"text", value: this.state.filter, onChange:this.this.useFilter}),
+            React.DOM.input({type:"text", value: this.state.filter, onChange:this.useFilter}),
             React.DOM.div( {className:""}, wordsList),
             
         ))
