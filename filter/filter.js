@@ -39,9 +39,9 @@ var FilterWords =React.createClass({
         if (this.state.sorted){
             words = words.sort();
         }
-        if (this.state.contain) {
+        if (this.state.filter) {
             words = words.filter(
-                letter => (letter.indexOf(this.state.contain) != -1)
+                letter => (letter.indexOf(this.state.filter) > -1)
             );
         }
         this.setState({"filteredWords": words})
