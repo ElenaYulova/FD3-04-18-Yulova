@@ -1,0 +1,7 @@
+.selected {
+    background-color: orange;
+}.goodsTable, .goodsTable tr, .goodsTable tr td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+/*# sourceMappingURL=bundle.css.map*/
