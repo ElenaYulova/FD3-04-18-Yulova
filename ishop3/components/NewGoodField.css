@@ -1,0 +1,6 @@
+.good-field__label {
+    width: 80px;
+}
+.good-field__error {
+    color: red;
+}
