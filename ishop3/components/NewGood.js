@@ -23,12 +23,41 @@ class NewGood extends React.Component {
             heading: props.good ? 'Edit existing good' : 'Add new good',          
         }
     }
-   validateText = (text)=> {
-       return (typeof text != "string" || text == "")?false: true;
-         
-    }
-    validateNumber
+    validateText = (text)=> (typeof text != "string" || text == "")?false: true;         
+    validateNumber = (val)=> (typeof val != "number" || val == "")?false: true; 
 
+    validateName = (toFocus) => {
+        var ok = true;
+        var goodName = this.props.good.name;
+        ok = validateText(goodName.value);
+        this.setState(nameValid) = true;
+        if (toFocus) goodName.focus();
+        return ok;
+    } 
+    validatePrice = (toFocus) => {
+        var ok = true;
+        var price = this.props.good.price;
+        ok = validateNumber(price.value);
+        this.setState(priceValid) = true;
+        if (toFocus) price.focus();
+        return ok;
+    }
+    validateUrl = (toFocus) => {
+        var ok = true;
+        var url = this.props.good.url;
+        ok = validateText(url.value);
+        this.setState(urlValid) = true;
+        if (toFocus) url.focus();
+        return ok;
+    }
+    validateQuantity = (toFocus) => {
+        var ok = true;
+        var quantity = this.props.good.quantity;
+        ok = validateNumber(quantity.value);
+        this.setState(quantityValid) = true;
+        if (toFocus) quantity.focus();
+        return ok;
+    }
     validation = (EO) => {
         EO = EO || window.event;
         var ok = true;
@@ -47,7 +76,9 @@ class NewGood extends React.Component {
         validateUrl();
         validateQuantity();       
     }
-
+    render() {
+        return <form></form>
+    }
    
 
 }
