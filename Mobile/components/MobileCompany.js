@@ -26,6 +26,10 @@ class MobileCompany extends React.PureComponent {
       v.shown = true;
       return v;
     }),
+    filteredClients: this.props.clients.map((v) => {
+      v.shown = true;
+      return v;
+    }),
   };
 
   setName = (EO) => {
@@ -94,61 +98,36 @@ class MobileCompany extends React.PureComponent {
     this.setState({ clients: newClients });
   };
   
-  filterClients = (EO) => {
+  filterAll = () => {
+    this.setState({ clients: this.state.filteredClients })
+}
 
-    let newFilter = EO.target.value;
-    if (newFilter != this.state.filter) {
-      let newClients = [...this.state.clients];
-      let changed = false;
+filterActive = () => {
 
-      let changedMark = (v, i, mark) => {
-        let newClient = { ...v };
-        newClient.shown = mark;
-        newClients[i] = newClient;
-        changed = true;
-      };
+    let active = this.state.filteredClients
+    active = active.filter((v) => {
+       (v.balance >= 0)? true : false;
+        
+    });
+    this.setState({ clients: active })
+}
 
-      if (newFilter == 'all') {
-        newClients.forEach((v, i) => {
-          if (!v.shown) {
-            changedMark(v, i, true);
-          }
-        });
-      } else if (newFilter == 'blocked') {
-        newClients.forEach((v, i) => {
-          if (v.balance >= 0 && v.isShown) {
-            changedMark(v, i, false);
-          } else if (v.balance < 0 && !v.shown) {
-            changedMark(v, i, true);
-          }
-        });
-      }else if (newFilter == "active") {
-        newClients.forEach((v, i) => {
-          if (v.balance >= 0 && !v.shown) {
-            changedMark(v, i, true);
-          } else if (v.balance < 0 && v.isShown) {
-            changedMark(v, i, false);
-          }
-        });
-      } 
-      if (changed) {
-        this.setState({
-          clients: newClients,
-        });
+filterBlocked = () => {
+    let blocked = this.state.filteredClients
+    blocked = blocked.filter((v) => {
+      (v.balance < 0)? true : false;
+        
+    });
 
-      this.setState({
-        filter: newFilter,
-      });
+    this.setState({ clients: blocked })
 
-      
-      }
-    }
-  }
+}
+  
   render() {
 
     console.log("MobileCompany render");
 
-    var clients=this.state.clients.map( client => {
+    var clients=this.state.clients.map(client => {
         
         return <MobileClient 
         key={client.id} 
@@ -168,12 +147,12 @@ class MobileCompany extends React.PureComponent {
             <input type="button" value="MTC" onClick={this.setName} />
           </div>
           <div className="">
-            <label htmlFor="filter">Show</label>
-            <select id="filter" value={this.state.filter} onChange={this.filterClients}>
-              <option type="radio" id="filter" value="all">All</option>
-              <option type="radio" id="filter" value="active">Active</option>
-              <option type="radio" id="filter" value="blocked">Blocked</option>
-            </select>
+            
+            
+              <button onClick={this.filterAll}>All</button>
+              <button onClick={this.filterActive}>Active</button>
+              <button onClick={this.filterBlocked}>Blocked</button>
+            
           </div>
         </div>
         <div className='MobileCompanyName'>Компания &laquo;{this.state.name}&raquo;</div>

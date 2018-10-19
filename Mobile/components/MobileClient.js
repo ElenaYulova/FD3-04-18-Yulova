@@ -109,7 +109,7 @@ class MobileClient extends React.PureComponent {
                   </form>
                   :
                   <div className="MobileClientFioContainer">
-                    <span>{this.state.fam + " " + this.state.im + " " + this.state.otch}</span>
+                    <span>{this.state.FIO.fam + " " + this.state.FIO.im + " " + this.state.FIO.otch}</span>
                     <button onClick={this.editButton}>Edit</button>
                     </div>
               }
