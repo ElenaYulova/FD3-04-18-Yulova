@@ -12,44 +12,49 @@ class MobileClient extends React.PureComponent {
       im: PropTypes.string.isRequired,
       otch: PropTypes.string.isRequired,
       balance: PropTypes.number.isRequired,
-      shown: PropTypes.bool.isRequired,
-      edited: PropTypes.bool,
+      edited: PropTypes.bool.isRequired,
     }),
-       
+    onFIOChange: PropTypes.func.isRequired,
+    onBalanceChange: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,  
   };
-  static defaultProps = {
-    client: {
-      edited: false,
-    }
-  }
+  
   state = {
-    FIO: {
+    
       fam: this.props.client.fam,
       im: this.props.client.im,
       otch: this.props.client.otch,      
-    },
-    balance: this.props.balance,
+    
+    balance: this.props.client.balance,
     edited: this.props.client.edited,
-    activeClient: this.props.client.balance >= 0,
+    active: this.props.client.balance >= 0,
   };
 
   componentWillReceiveProps = (newProps) => {
     //console.log("MobileClient id="+this.props.id+" componentWillReceiveProps");
+    var fam = this.state.fam;
+    var im = this.state.im;
+    var otch = this.state.otch;
     var newClient = newProps.client;
-    if (this.state.FIO.fam != newClient.fam || this.state.FIO.im != newClient.im || this.state.FIO.otch != newClient.otch) {
+    if (this.fam != newClient.fam || im != newClient.im || otch != newClient.otch) {
       this.setState({
-        FIO: {
+        
           fam: newClient.fam,
           im: newClient.im,
           otch: newClient.otch,
-        },
+        
         edited: false,
       });
     }
     if (this.state.balance != newClient.balance) {
       this.setState({
         balance: newProps.client.balance,
-        isActive: newProps.client.balance >= 0,
+        active: newProps.client.balance >= 0,
+      });
+    }
+    if (this.state.edited != newClient.edited) {
+      this.setState({
+        edited: newClient.edited,
       });
     }
   };
@@ -60,8 +65,9 @@ class MobileClient extends React.PureComponent {
     this.props.onBalanceChange(this.props.client.id, ++this.state.balance);
     if (this.state.balance >= 0) {
       this.setState({
-        activeClient: true,
+        active: true,
       });
+      // console.log(this.state.balance)
     }
   }
 
@@ -69,7 +75,7 @@ class MobileClient extends React.PureComponent {
     this.props.onBalanceChange(this.props.client.id, --this.state.balance);
     if (this.state.balance < 0) {
       this.setState({
-        activeClient: false,
+        active: false,
       });
     }
   }
@@ -85,17 +91,15 @@ class MobileClient extends React.PureComponent {
       otch: clientForm.otch.value,
     };
     this.props.onFIOChange(this.props.client.id, FIO);
-    this.setState({
-       edited: false 
-      });
+    
   }
   render() {
 
-    console.log("MobileClient id="+this.props.id+" render");
+    console.log("MobileClient id="+this.props.client.id+" render");
     
     return (
       <div className='MobileClient'>{
-        this.props.client.shown && <div className='MobileClient'>
+        <div className='MobileClient'>
             <span className="MobileClientId">{this.props.client.id}</span>
             <div className='MobileClientFio'>
               {
@@ -109,7 +113,7 @@ class MobileClient extends React.PureComponent {
                   </form>
                   :
                   <div className="MobileClientFioContainer">
-                    <span>{this.state.FIO.fam + " " + this.state.FIO.im + " " + this.state.FIO.otch}</span>
+                    <span>{this.state.fam + " " + this.state.im + " " + this.state.otch}</span>
                     <button onClick={this.editButton}>Edit</button>
                     </div>
               }
@@ -121,7 +125,7 @@ class MobileClient extends React.PureComponent {
               </div>
               <div className="MobileClientActive">
               {
-                this.state.activeClient
+                this.state.active
                   ?
                   <span className="MobileClientActiveActive">Active</span>
                   :
