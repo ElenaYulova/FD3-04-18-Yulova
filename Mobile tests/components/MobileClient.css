@@ -1,0 +1,23 @@
+﻿.MobileClient
+{
+  padding: 2px 0;
+}
+
+.MobileClientBalance
+{
+  float: right;
+  width: 30px;
+  font-weight: bold;
+  text-align: right;
+}
+
+
+.MobileClientActiveActive {
+  color: green;
+  font-weight: bold;
+}
+
+.MobileClientActiveBlocked {
+  color: red;
+  font-weight: bold;
+}
