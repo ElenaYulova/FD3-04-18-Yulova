@@ -120,8 +120,8 @@ class MobileClient extends React.PureComponent {
               </div>
               <div>
               <span className="MobileClientBalance">{this.state.balance}</span>
-              <button onClick={this.decreaseBalance}>Decrease</button>
-              <button onClick={this.increaseBalance}>Increase</button>
+              <button className="decrease" onClick={this.decreaseBalance}>Decrease</button>
+              <button className="increase" onClick={this.increaseBalance}>Increase</button>
               </div>
               <div className="MobileClientActive">
               {
@@ -133,7 +133,7 @@ class MobileClient extends React.PureComponent {
               }
             </div>
             <div className="MobileClientDelete">
-              <button onClick={this.deleteClient}>Delete</button>
+              <button className="delete"onClick={this.deleteClient}>Delete</button>
             </div>
         </div>
       }
