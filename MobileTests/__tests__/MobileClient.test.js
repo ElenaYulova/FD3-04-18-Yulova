@@ -3,11 +3,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import shallow from 'enzyme';
-
+import {shallow, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import MobileClient from '../components/MobileClient';
 
-
+configure({ adapter: new Adapter() });
 
 describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
 //shapshots
@@ -88,7 +88,7 @@ describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
     
         wrapper.find('.delete').simulate('click');
     
-        expect(onDelete).toBeCalledWith(client.id);
+        expect(onDelete).toBeCalledWith(client1.id);
       });
 //onBalanceChange
     it('onBalanceChange works', () => {
@@ -101,7 +101,7 @@ describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
     
         wrapper.find('.increase').simulate('click');
     
-        expect(onBalanceChange).toBeCalledWith(client.id, 1);
+        expect(onBalanceChange).toBeCalledWith(client1.id, 1);
       });
     
       it('onBalanceChange works', () => {
@@ -112,9 +112,9 @@ describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
             onBalanceChange={onBalanceChange} />
         );
     
-        wrapper.find('.dectease').simulate('click');
+        wrapper.find('.decrease').simulate('click');
     
-        expect(onBalanceChange).toBeCalledWith(client.id, -1);
+        expect(onBalanceChange).toBeCalledWith(client1.id, -1);
       });
 
 });
