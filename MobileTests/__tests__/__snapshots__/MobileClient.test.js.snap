@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>MobileClient --- Shallow Render REACT COMPONENTS renders blocked client 1`] = `
+<div
+  className="MobileClient"
+>
+  <div
+    className="MobileClient"
+  >
+    <span
+      className="MobileClientId"
+    >
+      3
+    </span>
+    <div
+      className="MobileClientFio"
+    >
+      <div
+        className="MobileClientFioContainer"
+      >
+        <span>
+          fam3 im3 otch3
+        </span>
+        <button
+          onClick={[Function]}
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+    <div>
+      <span
+        className="MobileClientBalance"
+      >
+        -1
+      </span>
+      <button
+        className="decrease"
+        onClick={[Function]}
+      >
+        Decrease
+      </button>
+      <button
+        className="increase"
+        onClick={[Function]}
+      >
+        Increase
+      </button>
+    </div>
+    <div
+      className="MobileClientActive"
+    >
+      <span
+        className="MobileClientActiveBlocked"
+      >
+        Blocked
+      </span>
+    </div>
+    <div
+      className="MobileClientDelete"
+    >
+      <button
+        className="delete"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`>>>MobileClient --- Shallow Render REACT COMPONENTS renders edited client 1`] = `
+<div
+  className="MobileClient"
+>
+  <div
+    className="MobileClient"
+  >
+    <span
+      className="MobileClientId"
+    >
+      2
+    </span>
+    <div
+      className="MobileClientFio"
+    >
+      <form
+        className="MobileClientFioForm"
+        onSubmit={[Function]}
+      >
+        <input
+          defaultValue="fam2"
+          name="fam"
+          type="text"
+        />
+        <input
+          defaultValue="im2"
+          name="im"
+          type="text"
+        />
+        <input
+          defaultValue="otch2"
+          name="otch"
+          type="text"
+        />
+        <input
+          type="submit"
+          value="Save"
+        />
+      </form>
+    </div>
+    <div>
+      <span
+        className="MobileClientBalance"
+      >
+        1
+      </span>
+      <button
+        className="decrease"
+        onClick={[Function]}
+      >
+        Decrease
+      </button>
+      <button
+        className="increase"
+        onClick={[Function]}
+      >
+        Increase
+      </button>
+    </div>
+    <div
+      className="MobileClientActive"
+    >
+      <span
+        className="MobileClientActiveActive"
+      >
+        Active
+      </span>
+    </div>
+    <div
+      className="MobileClientDelete"
+    >
+      <button
+        className="delete"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`>>>MobileClient --- Shallow Render REACT COMPONENTS renders usual client 1`] = `
+<div
+  className="MobileClient"
+>
+  <div
+    className="MobileClient"
+  >
+    <span
+      className="MobileClientId"
+    >
+      1
+    </span>
+    <div
+      className="MobileClientFio"
+    >
+      <div
+        className="MobileClientFioContainer"
+      >
+        <span>
+          fam1 im1 otch1
+        </span>
+        <button
+          onClick={[Function]}
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+    <div>
+      <span
+        className="MobileClientBalance"
+      >
+        0
+      </span>
+      <button
+        className="decrease"
+        onClick={[Function]}
+      >
+        Decrease
+      </button>
+      <button
+        className="increase"
+        onClick={[Function]}
+      >
+        Increase
+      </button>
+    </div>
+    <div
+      className="MobileClientActive"
+    >
+      <span
+        className="MobileClientActiveActive"
+      >
+        Active
+      </span>
+    </div>
+    <div
+      className="MobileClientDelete"
+    >
+      <button
+        className="delete"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+`;

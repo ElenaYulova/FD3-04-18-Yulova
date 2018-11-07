@@ -3,7 +3,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { shallow } from 'enzyme';
+import shallow from 'enzyme';
 
 import MobileClient from '../components/MobileClient';
 
@@ -81,7 +81,7 @@ describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
     it('onDelete works', () => {
         const onDelete = jest.fn();
         const wrapper = shallow(
-          <MobileClient client={client} onDelete={onDelete}
+          <MobileClient client={client1} onDelete={onDelete}
             onFIOChange={() => { }}
             onBalanceChange={() => { }} />
         );
@@ -94,7 +94,7 @@ describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
     it('onBalanceChange works', () => {
         const onBalanceChange = jest.fn();
         const wrapper = shallow(
-          <MobileClient client={client} onDelete={() => { }}
+          <MobileClient client={client1} onDelete={() => { }}
             onFIOChange={() => { }}
             onBalanceChange={onBalanceChange} />
         );
@@ -107,7 +107,7 @@ describe('>>>MobileClient --- Shallow Render REACT COMPONENTS',()=>{
       it('onBalanceChange works', () => {
         const onBalanceChange = jest.fn();
         const wrapper = shallow(
-          <MobileClient client={client} onDelete={() => { }}
+          <MobileClient client={client1} onDelete={() => { }}
             onFIOChange={() => { }}
             onBalanceChange={onBalanceChange} />
         );
