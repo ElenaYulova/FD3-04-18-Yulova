@@ -225,7 +225,7 @@ exports[`>>>MobileCompany-- Shallow Render REACT COMPONENTS render company 1`] =
           <span
             className="MobileClientBalance"
           >
-            1
+            -1
           </span>
           <button
             className="decrease"
@@ -244,9 +244,9 @@ exports[`>>>MobileCompany-- Shallow Render REACT COMPONENTS render company 1`] =
           className="MobileClientActive"
         >
           <span
-            className="MobileClientActiveActive"
+            className="MobileClientActiveBlocked"
           >
-            Active
+            Blocked
           </span>
         </div>
         <div

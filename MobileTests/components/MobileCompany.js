@@ -119,7 +119,7 @@ class MobileCompany extends React.PureComponent {
   } 
 
   deleteClient = (clientId) => {
-    let newClients=[...this.state.cliens];
+    let newClients=[...this.state.clients];
     let newFilteredClients = [...this.state.notFilteredClients];
     newClients.forEach((c, i) => {
       if (c.id == clientId) {

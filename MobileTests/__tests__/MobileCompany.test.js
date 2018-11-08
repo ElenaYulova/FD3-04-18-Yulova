@@ -17,7 +17,7 @@ describe('>>>MobileCompany-- Shallow Render REACT COMPONENTS', () => {
     let clientsArr=[ 
     {id:101, fam:"Иванов", im:"Иван", otch:"Иванович", balance:200}, 
     {id:105, fam:"Сидоров", im:"Сидор", otch:"Сидорович", balance:250}, 
-    {id:110, fam:"Петров", im:"Пётр", otch:"Петрович", balance:1},
+    {id:110, fam:"Петров", im:"Пётр", otch:"Петрович", balance:-1},
     {id:120, fam:"Григорьев", im:"Григорий", otch:"Григорьевич", balance:220},
     ];
 
@@ -62,14 +62,15 @@ describe('>>>MobileCompany-- Shallow Render REACT COMPONENTS', () => {
 
     //delete client
     it('delete client', () => {
-        wrapper.instance().deleteClient(101);
+        wrapper.instance().deleteClient("101");
         expect(wrapper.state('clients').length).toEqual(3);
        });
 
     //filter clients
       it('filter clients', () => {
-        let event;
-        event.target.value = 'active';
+        const event = {
+          target: {value: 'active'}
+        }
     
         wrapper.instance().clientFilter(event);
         expect(wrapper.state('notFilteredClients').length).toEqual(3);
