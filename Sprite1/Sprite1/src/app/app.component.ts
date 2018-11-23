@@ -9,12 +9,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
     private title:string = 'Sprite';
     private url:string = 'http://fe.it-academy.by/Examples/cards2.png';
-    private offsetX:string = '0px';
-    private offsetY:string = '0px';
-    private width:string = '143px';
-    private height:string = '193px';
+    private offsetX:number =0;
+    private offsetY:number =0;
+    private width:number =143;
+    private height:number =193;;
 
-    private position:string = this.offsetX + ' ' + this.offsetY;
+    
 
     getTitle():string {
         return this.title;
@@ -24,19 +24,29 @@ export class AppComponent {
         return this.url;
     }
 
-    getPosition():string {
-        return this.position;
+    getOffsetX():number {
+        return this.offsetX;
     };
 
-    getWidth():string {
+    getOffsetY():number {
+        return this.offsetY;
+    };
+
+    getWidth():number {
         return this.width;
     };
 
-    getHeight():string {
+    getHeight():number {
         return this.height;
     };
 
-    clickedSprite(newPosition):void {
-        this.position = newPosition;
+    clickedSprite():void { 
+        if (this.offsetX>-429){
+            this.offsetX-=144;
+        } else{
+            this.offsetX = 0;
+            this.offsetY -=195;
+        }
+        
     }
 }

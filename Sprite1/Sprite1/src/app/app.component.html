@@ -2,9 +2,9 @@
         <h1>{{getTitle()}}</h1>
     <app-sprite
         [url]="getUrl()" 
-        [position]="getPosition()" 
-        [width]="getWidth()" 
-        [height]="getHeight()" 
+        [position]="getOffsetX()+'px' + ' ' + getOffsetY()+'px'" 
+        [width]="getWidth()+'px'" 
+        [height]="getHeight()+'px'" 
         (clicked)="clickedSprite($event)"
         >
     </app-sprite>
