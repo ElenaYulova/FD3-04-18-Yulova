@@ -1,0 +1,13 @@
+<div class="container">
+        <h1>{{getTitle()}}</h1>
+    <app-sprite
+        [url]="getUrl()" 
+        [position]="getPosition()" 
+        [width]="getWidth()" 
+        [height]="getHeight()" 
+        (clicked)="clickedSprite($event)"
+        >
+    </app-sprite>
+  </div>
+  
+  
