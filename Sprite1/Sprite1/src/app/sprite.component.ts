@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-sprite',
   templateUrl: 'sprite.component.html',
   styleUrls: ['sprite.component.css']
